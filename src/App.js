@@ -44,7 +44,7 @@ function Counter() {
       <p>
         {count > 0 && `${days} days from today is ${dateFinal}`}
         {count === 0 && `Today is ${date}`}
-        {count < 0 && `${days} days ago was ${dateFinal}`}
+        {count < 0 && `${Math.abs(days)} days ago was ${dateFinal}`}
       </p>
     </>
   );
