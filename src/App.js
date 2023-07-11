@@ -20,24 +20,24 @@ function Counter() {
   const countMinus = () => setCount((c) => c - step);
   const days = count;
   const daysSec = Math.trunc(count * 86400);
-  console.log(daysSec);
 
   let date = Date().slice(0, 15);
   let dateSec = Math.round(new Date().getTime() / 1000);
 
-  console.log(dateSec);
   const dateFinal = new Date((dateSec + daysSec) * 1000)
     .toDateString()
     .slice(0, 15);
-  console.log(dateFinal);
+
   return (
     <>
       <div>
-        <button onClick={stepMinus}>-</button>Step: {step}
+        <button onClick={stepMinus}>-</button>
+        <span>Step: {step}</span>
         <button onClick={stepPlus}>+</button>
       </div>
       <div>
-        <button onClick={countMinus}>-</button>Count: {count}
+        <button onClick={countMinus}>-</button>
+        <span>Count: {count}</span>
         <button onClick={countPlus}>+</button>
       </div>
       <br />
