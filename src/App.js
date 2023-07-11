@@ -16,6 +16,9 @@ function Counter() {
   const stepMinus = () => {
     if (step > 1) setStep((s) => s - 1);
   };
+  const countPlus = () => setCount((c) => c + step);
+  const countMinus = () => setCount((c) => c - step);
+
   let date = Date().slice(0, 15);
   let dataSec = Math.round(new Date().getTime() / 1000);
 
@@ -26,8 +29,8 @@ function Counter() {
         <button onClick={stepPlus}>+</button>
       </div>
       <div>
-        <button>-</button>Count: {count}
-        <button>+</button>
+        <button onClick={countMinus}>-</button>Count: {count}
+        <button onClick={countPlus}>+</button>
       </div>
       <br />
       <p>
