@@ -18,10 +18,18 @@ function Counter() {
   };
   const countPlus = () => setCount((c) => c + step);
   const countMinus = () => setCount((c) => c - step);
+  const days = count;
+  const daysSec = Math.trunc(count * 86400);
+  console.log(daysSec);
 
   let date = Date().slice(0, 15);
-  let dataSec = Math.round(new Date().getTime() / 1000);
+  let dateSec = Math.round(new Date().getTime() / 1000);
 
+  console.log(dateSec);
+  const dateFinal = new Date((dateSec + daysSec) * 1000)
+    .toDateString()
+    .slice(0, 15);
+  console.log(dateFinal);
   return (
     <>
       <div>
@@ -34,7 +42,9 @@ function Counter() {
       </div>
       <br />
       <p>
-        Today is {date} = {dataSec}
+        {count > 0 && `${days} days from today is ${dateFinal}`}
+        {count === 0 && `Today is ${date}`}
+        {count < 0 && `${days} days ago was ${dateFinal}`}
       </p>
     </>
   );
